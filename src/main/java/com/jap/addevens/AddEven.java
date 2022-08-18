@@ -1,19 +1,30 @@
 package com.jap.addevens;
 
-public class AddEven
-{
-    //Write the logic to add evens in the methods
-    public long addEvens(int n)    {
-      return  -1;
+class AddEven {
+    public static void main(String[] args) {
+        AddEven input = new AddEven();
+        long result = input.addEvens(9);
+        System.out.println("result = " + result);
     }
-        public static void main(String[] args) {
-        // Initialize the object of AddEven class
-            AddEven addEven = new AddEven();
-            // Declare a variable to give as input to the addEvens method
 
-            // Call the addEvens method and display the result
-
+    /**
+     * It adds all the even numbers from 1 to the number passed in
+     *
+     * @param number the number to be added
+     * @return The sum of all even numbers from 1 to the number given
+     */
+    public long addEvens(long number) {
+        if (number == 1) {
+            return 0;
         }
-
-
+        if (number <= 0) {
+            return 0;
+        }
+        if ((number % 2 == 0)) {
+            return number + addEvens(number - 1);
+        } else {
+            return addEvens((number - 1));
+        }
+    }
 }
+
